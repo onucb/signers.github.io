@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
- 
 <head>
     <meta charset="UTF-8">
-
     <title>Сигнер онлайн - для подписи приложений вашим сертификатом разработчика</title>
     <meta name="Keywords" content="ios sign,ipa signer,app signer,IPASigns,signipa,ipasign" />
     <meta name="description" content="ios app signer,apple ipa signer tool,ios developer enterprise certificate sign,app free resign,Windows platform signature,mac platform xcode signature,iphone signer without jailbreak" />
@@ -14,7 +12,6 @@
     <script type="text/javascript" src="./js/sojson.js"></script>
     <script type="text/javascript" src="./js/qrcode.min.js"></script>
     <link rel="stylesheet" href="./css/app.css">
- 
     <style>
         .fade-enter-active,
         .fade-leave-active {
@@ -30,7 +27,6 @@
         }
     </style>
 </head>
- 
 <body>
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div id="app">
@@ -39,7 +35,6 @@
             <div class="row mt-5">
                 <div class="col-sm-12 col-md-10 offset-md-1">
                     
- 
                     <div class="card">
                         <div class="card-body" v-show="showStep1">
                             <h4 class="card-title">Шаг 1: Выберите файлы</h4>
@@ -158,13 +153,13 @@
                 showStep4: false,
                 progressBar: 0,
                 ipaCss: 'is-invalid',
-                ipaText: 'Выберите .ipa приложение.',
+                ipaText: 'Выберите .ipa приложение для подписи.',
                 p12Css: 'is-invalid',
-                p12Text: 'Сертификат.p12',
+                p12Text: 'Файл Сертификат.p12',
                 pwdCss: 'is-invalid',
                 pwdText: 'Пароль сертификата .p12',
                 mobCss: 'is-invalid',
-                mobText: 'all.mobileprovision',
+                mobText: 'Файл _all.mobileprovision',
                 download: '',
                 download_ipa: '',
                 ipa: '',
@@ -186,7 +181,7 @@
                                 this.ipa = params.target.files[0];
                             } else {
                                 this.ipaCss = 'is-invalid';
-                                this.ipaText = 'Choose an .ipa file or drop it here...';
+                                this.ipaText = 'Выберите .ipa приложение.';
                                 this.ipa = '';
                             }
                             break;
@@ -197,7 +192,7 @@
                                 this.p12 = params.target.files[0];
                             } else {
                                 this.p12Css = 'is-invalid';
-                                this.p12Text = 'Choose an .ipa file or drop it here...';
+                                this.p12Text = 'Выберите .p12 файл сертификата.';
                                 this.p12 = '';
                             }
                             break;
@@ -208,7 +203,7 @@
                                 this.mobileprovision = params.target.files[0];
                             } else {
                                 this.mobCss = 'is-invalid';
-                                this.mobText = 'Choose an .mobileprovision file or drop it here...';
+                                this.mobText = 'Выберите .mobileprovision файл сертификата.';
                                 this.mobileprovision = '';
                             }
                             break;
@@ -226,7 +221,7 @@
                         }
                     }
  
-                    // 文件上传
+                    // Загрузка файла
                     this.showStep1 = false;
                     this.showStep2 = true;
                     var formData = new FormData();
@@ -242,17 +237,17 @@
                             'Content-Type': 'multipart/form-data'
                         },
                         onUploadProgress: (progressEvent) => {
-                            // 使用本地 progress 事件
+                            // Используйте локальный progress Событием
                             if (progressEvent.lengthComputable) {
-                                let num = Math.round((progressEvent.loaded / progressEvent.total) * 100)
-                                this.progressBar = num // 使用某种 UI 进度条组件会用到的百分比
+                                let num = Math.round((progressEvent.loaded / progressEvent.total) * 1000)
+                                this.progressBar = num // Процент, используемый с использованием определенного компонента индикатора выполнения пользовательского интерфейса
                             }
                         }
                     }
  
                     axios.post(uploadUrl, formData, config).then((response) => {
                         if (response.data.code == 0) {
-                            // 上传完成，开始签名
+                            // Загрузите полностью и начните подписывать.
                             that.showStep2 = false;
                             that.showStep3 = true;
                             let data = response.data.data;
@@ -260,7 +255,7 @@
                             this.status(data);
  
                         } else {
-                            alert('Please check the certificate password');
+                            alert('Пожалуйста, проверьте пароль сертификата');
                         }
                     }).catch(function(error) {
                         alert(error);
@@ -280,7 +275,7 @@
  
                     axios.post(checkUrl, signData, headers).then((response) => {
                         if (response.data.code == 0) {
-                            // 签名成功
+                            // Подпись прошла успешно
                             this.showStep3 = false;
                             this.showStep4 = true;
  
@@ -294,7 +289,7 @@
                             qrcode.makeCode(that.download);
                             
                         } else if (response.data.code == 1) {
-                            console.info("签名中");
+                            console.info("В подписи");
                             setTimeout("this.status()", "3000");
                             const timer = setInterval(() => {
                                 clearInterval(timer)
