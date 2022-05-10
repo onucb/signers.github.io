@@ -15,7 +15,7 @@
         <span> <button style="font-size:13px;" onclick="get()">Установить приложение</button></span>
     </div>
     <div class="download">
-        <a class="login-button" href="itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/30a6e2bc-f0e3-2790-2c90-0868a1e3074b/20220510172453/app.plist">Install Now!</a>
+        <a class="login-button" href="https://ipasigns.cc/upload/30a6e2bc-f0e3-2790-2c90-0868a1e3074b/20220510172453/app.plist">Install Now!</a>
 
     </div>
     <div class="info">
@@ -23,9 +23,9 @@
     </div>
 </body>
  <script>
-                        var pathname = window.location.pathname;
+                        var pathname = window.location.pathname.slice(1);
 			var get = function(){
-			window.location.href = pathname;
+			window.location.href = 'itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/' + pathname;
             }
 			</script>
 </html>
