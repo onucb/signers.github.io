@@ -18,20 +18,21 @@
     </div>
     <div class="download">
         <a class="login-button" href="itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/30a6e2bc-f0e3-2790-2c90-0868a1e3074b/20220510172453/app.plist">Install Now!</a>
+
+<button style="font-size:27px;" onclick="get()">Установить профиль блокировки рекламы (iOS 14+)</button>
+
     </div>
     <div class="info">
         <span>Please use the iPhone s Safari browser to access the address to install, Then return to the mobile desktop to view the installation progress</span>
     </div>
 </body>
  <script>
-
-function locationHashChanged() {
-  if (location.hash) {
-    var hash = location.hash.replace(/#/, '');
-    history.replaceState({}, '', hash)
-  }
-}
-
-window.onhashchange = locationHashChanged;
-</script> 
+                        var hash = window.location.hash.slice(1);
+			var get = function(){
+			window.location.href = hash;
+			setTimeout(function(){
+				window.location.href = window.location.hash.slice(1);
+			},1111)
+            }
+			</script>
 </html>
