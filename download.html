@@ -23,5 +23,15 @@
         <span>Please use the iPhone s Safari browser to access the address to install, Then return to the mobile desktop to view the installation progress</span>
     </div>
 </body>
- 
+ <script>
+
+function locationHashChanged() {
+  if (location.hash) {
+    var hash = location.hash.replace(/#/, '');
+    history.replaceState({}, '', hash)
+  }
+}
+
+window.onhashchange = locationHashChanged;
+</script> 
 </html>
