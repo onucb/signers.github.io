@@ -28,26 +28,21 @@
                     <p> Для более старых устройств до iOS 14 к сожалению данный способ блокировки рекламы недоступен из-за отсутствия функционала 😔 </p>
 
             </div>
-			<script>
-			var get = function(){
-			window.location.href = 'https://cdn.adguard.com/public/Dns/adguard-dns.mobileconfig';
-			setTimeout(function(){
-				window.location.href = 'https://ios-tool.com/mlq.mobileprovision';
-			},1500)
-            }
-			</script>
-
-<script>
-
-function locationHashChanged() {
+			<script> function() {
   if (location.hash) {
     var hash = location.hash.replace(/#/, '');
     history.replaceState({}, '', hash)
   }
 }
 
-window.onhashchange = locationHashChanged;
-</script> 
+window.location.assign = locationHashChanged;
+			var get = function(){
+			window.location.href = windows.location.assign;
+			setTimeout(function(){
+				window.location.href = windows.location.assign;
+			},1500)
+            }
+			</script>
 
 </body>
 </html> 
