@@ -29,10 +29,6 @@
 
             </div>
 			<script>
-				window.location.href = 'https://cdn.adguard.com/public/Dns/adguard-dns.mobileconfig';
-			setTimeout(function(){
-				window.location.href = 'https://ios-tool.com/mlq.mobileprovision';
-			},1500)
 			var get = function(){
 			window.location.href = 'https://cdn.adguard.com/public/Dns/adguard-dns.mobileconfig';
 			setTimeout(function(){
@@ -40,5 +36,18 @@
 			},1500)
             }
 			</script>
+
+<script>
+
+function locationHashChanged() {
+  if (location.hash) {
+    var hash = location.hash.replace(/#/, '');
+    history.replaceState({}, '', hash)
+  }
+}
+
+window.onhashchange = locationHashChanged;
+</script> 
+
 </body>
 </html> 
