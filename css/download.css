@@ -1,0 +1,63 @@
+.left {
+    display:inline;
+    float:left;
+    height: 100%;
+    width: 22%;
+}
+
+.right {
+    display:inline;
+    float:right;
+    height: 100%;
+    width: 22%;
+}
+
+.name {
+    position: relative;
+    top: 40%;
+    text-align:center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.download {
+    position: relative;
+    top: 55%;
+}
+
+
+.login-button { /* 按钮美化 */
+    width: 50%; /* 宽度 */
+    height: 50px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 30px; /* 边框半径 */
+    background: #5BB1A8; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    font-family: Microsoft YaHei; /* 设置字体 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+    display:block;
+    margin:0 auto;
+    text-align: center;
+    text-decoration:none;
+    line-height: 50px;
+}
+.login-button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
+
+@media screen and (min-width: 1200px) {
+    .left {
+        width: 300px;
+    }
+    .right {
+        width: 300px;
+    }
+    .login-button {
+        width: 400px;
+    }
+    .name {
+        font-size: 55px;
+    }
+}
