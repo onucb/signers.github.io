@@ -1,0 +1,28 @@
+<html>
+
+  <section class="container main">
+    <form onSubmit="return uploadFile()">
+     <p><input type="file" id="file-upload" /></p>
+      <p><button type="submit">Submit</button></p>
+    </form>
+    <h2 id="results"></h2>
+  </section>
+<script>
+
+function uploadFile() {
+      var ACCESS_TOKEN = ""; // Here the access token key
+      var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+      var fileInput = document.getElementById('file-upload');
+      var file = fileInput.files[0];
+      dbx.filesUpload({path: '/' + file.name, contents: file}).then(function(response) {
+          var results = document.getElementById('results');
+          results.appendChild(document.createTextNode('File uploaded!'));
+          console.log(response);
+        }).catch(function(error) {
+          console.error(error);
+        });
+      return false;
+    }
+
+</script>
+</html> 
