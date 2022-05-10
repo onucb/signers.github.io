@@ -112,7 +112,7 @@
                         </div>
  
                         <div class="card-body" v-show="showStep2">
-                            <h4 class="card-title">Шаг 2: Выгружаю на сервер для подписи файлы</h4>
+                            <h4 class="card-title">Шаг 2: Выгружаю файлы на сервер для подписи</h4>
                             <div class="progress">
                                 <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progressBar }}" class="progress-bar bg-success progress-bar-striped progress-bar-animated" v-bind:style="{'width': progressBar + '%'}"><strong>{{ progressBar }}%</strong>
                                 </div>
@@ -135,18 +135,13 @@
                                 </div> 
                                 <div class="col-sm-8">
                                     <h6>Нажмите установить или скачать файлом ваше приложение</h6>
-                                    <div style="margin-top: 48px;"><a :href="download">Установить приложение 📲</a></div> 
-                                    <div style="margin-top: 48px;"><a :href="download_ipa">Скачать приложение 📥 </a></div>
                                     <button type="button" class="login-button" @click="download"><a :href="download">Установить приложение 📲</a></button>
                                     <button type="button" class="login-button" @click="download_ipa"><a :href="download_ipa">Скачать приложение 📥</a></button>
-                                </div> </br> 
-                                
+                                </div>
                             </div>
                             <button type="button" class="btn mt-3 btn-primary btn-block" @click="index">Подписать ещё...</button>
                         </div>
- 
                     </div>
- 
                 </div>
             </div>
         </div>
