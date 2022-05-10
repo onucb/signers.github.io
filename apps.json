@@ -1,0 +1,14 @@
+{
+  "name": "signer",
+  "short_name": "signer",
+  "icons": [{
+        "src": "media/logo.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      }],
+  "start_url": "https://nwotb.ml/signer/index.html?homescreen=1",
+   "scope": "https://ipa.ipasigns.cc/download/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}
