@@ -286,7 +286,7 @@
                             this.showStep3 = false;
                             this.showStep4 = true;
  
-                            that.download = downloadUrl + '/' + params.uuid + '/' + params.time;
+                            that.download = 'https://signernwotb.ml/x#itms-services://?action=download-manifest&amp;url=' + downloadUrl + '/' + params.uuid + '/' + params.time + '/app.plist';
                             that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'resign_' + params.time + '.ipa'
                             var qrcode = new QRCode(document.getElementById("qrcode"), {
                                 width: 100,
