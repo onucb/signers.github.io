@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
  
 <head>
     <meta charset="UTF-8">
 
-    <title>IPASigns - sign ipa files online without macOS for beta-testing</title>
+    <title>Сигнер онлайн - для подписи приложений вашим сертификатом разработчика</title>
     <meta name="Keywords" content="ios sign,ipa signer,app signer,IPASigns,signipa,ipasign" />
     <meta name="description" content="ios app signer,apple ipa signer tool,ios developer enterprise certificate sign,app free resign,Windows platform signature,mac platform xcode signature,iphone signer without jailbreak" />
     <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
-    <link rel="manifest" href="/signer/apps.json">
-    <script type="text/javascript" src="/signer/vue.min.js"></script>
-    <script type="text/javascript" src="/signer/axios.min.js"></script>
-    <script type="text/javascript" src="/signer/sojson.js"></script>
-    <script type="text/javascript" src="/signer/qrcode.min.js"></script>
-    <link rel="stylesheet" href="/signer/app.css">
+    <link rel="manifest" href="./json/apps.json">
+    <script type="text/javascript" src="./js/vue.min.js"></script>
+    <script type="text/javascript" src="./js/axios.min.js"></script>
+    <script type="text/javascript" src="./js/sojson.js"></script>
+    <script type="text/javascript" src="./js/qrcode.min.js"></script>
+    <link rel="stylesheet" href="./css/app.css">
  
     <style>
         .fade-enter-active,
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
  
-                            <div class="row mb-3">
+                            <div hidden class="row mb-3">
                                 <div class="col-sm-6">
                                     <input type="text" v-model="identifier" ref="identifier" placeholder="com.dublicate.app2" class="form-control" id="identifier">
                                 </div>
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
  
-                            <div class="row mb-3">
+                            <div hidden class="row mb-3">
                                 <div class="col-sm-6">
                                     <label class="form-control">
                                         <span>Delete dynamic library</span>
@@ -132,13 +132,11 @@
                                 <div class="col-sm-4">
                                     <h6>Отсканируйте qr код на камеру:</h6>
                                     <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
-                                </div> </br> </br> Или </br> 
+                                </div> 
                                 <div class="col-sm-8">
-                                    <h6>Нажмите на ссылку и установите подписанное приложение</h6>
-                                    <div style="margin-top: 48px;"><a :href="download">Установить приложение 📲</a></div> </br> 
-                                    <a :href="download" target="_blank" class="d-block mx-auto">{{download}}</a> </br> 
+                                    <h6>Нажмите установить или скачать файлом ваше приложение</h6>
+                                    <div style="margin-top: 48px;"><a :href="download">Установить приложение 📲</a></div> 
                                     <div style="margin-top: 48px;"><a :href="download_ipa">Скачать приложение 📥 </a></div>
-                                    <button type="button" class="login-button" @click="download">Подписать ещё...</button>
                                 </div> </br> 
                                 
                             </div>
