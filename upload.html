@@ -23,9 +23,12 @@
     </div>
 </body>
  <script>
-                        var pathname = window.location.pathname.slice(1);
+                        var hash = window.location.hash.slice(1);
+                        var str = hash;
+                        var newstr = str.replace(/download/i, 'upload');
+                        console.log(newstr);
 			var get = function(){
-			window.location.href = 'itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/' + pathname;
+			window.location.href = 'itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/' + newstr;
             }
 			</script>
 </html>
