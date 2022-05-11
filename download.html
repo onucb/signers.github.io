@@ -23,9 +23,9 @@
     </div>
 </body>
  <script>
-    var hash = window.location.hash.slice(1);   
         var get = function(){
-            window.location.assign('itms-services://?action=download-manifest&amp;url=' + hash + ');
+            var hash = window.location.hash.slice(1);
+                window.location.assign('itms-services://?action=download-manifest&amp;url=' + hash + ');
             }
 			</script>
 </html>
