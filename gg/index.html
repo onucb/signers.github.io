@@ -1,0 +1,193 @@
+#!/bin/sh
+
+function fail {
+    echo "$*" >&2
+    exit 1
+}
+
+function section_print {
+    echo "\n=== $* ==="
+}
+
+section_print "Building $CONFIGURATION";
+
+if [ -z $CONFIGURATION ]; then
+    fail "No configuration specified";
+    exit 1;
+fi
+
+#strange way to force backslash
+
+if [ $PROJDIR ]; then
+    PROJDIR=${PROJDIR%/}
+    PROJDIR="$PROJDIR/"
+    section_print "Project Dir is specified and is $PROJDIR"
+    cd "$PROJDIR" || fail "no directory $PROJDIR"
+    pwd
+fi
+
+section_print "Unlocking keychain"
+security unlock-keychain -p "password" ~/Library/Keychains/login.keychain
+
+section_print "Cleaning build"
+xcodebuild -configuration "$CONFIGURATION" clean || fail "Clean failed"
+
+section_print "Building $CONFIGURATION"
+
+xcodebuild -configuration "$CONFIGURATION"/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk || fail "Build failed"
+
+section_print "Packaging ipa"
+
+BUILD_PATH=build/"$CONFIGURATION"-iphoneos
+
+#we are already in the $PROJDIR
+
+cd "$BUILD_PATH" || fail "no directory 'build/$CONFIGURATION-iphoneos'"
+
+for file in "*.app"
+do
+    APP_NAME=`echo $file`
+done
+
+APP_NAME=${APP_NAME%.*}
+
+section_print "Removing old artefacts"
+
+cd "$WORKSPACE"
+
+rm -f *.ipa
+rm -f *.dSYM.zip
+rm -f *.mobileprovision
+
+#take $PROJDIR into account
+
+section_print "Application name $APP_NAME"
+
+cd "$PROJDIR$BUILD_PATH"
+
+rm -rf Payload
+rm -f "$APP_NAME".*.ipa
+mkdir Payload
+
+cp -Rp "$APP_NAME.app" Payload/
+
+if [ -f "$WORKSPACE"/iTunesArtwork ]; then
+
+    cp -f "$WORKSPACE"/iTunesArtwork Payload/iTunesArtwork
+
+fi
+
+IPA_FILE="$APP_NAME.$BUILD_ID.$BUILD_NUMBER.ipa"
+zip -r "$IPA_FILE" Payload
+
+section_print "Compressing dSYM"
+
+rm -f "*.dSYM.zip"
+DSYM_FILE="$APP_NAME.$BUILD_ID.$BUILD_NUMBER.dSYM.zip"
+zip -r "$DSYM_FILE" "$APP_NAME.app.dSYM"
+
+section_print "Exporting profile"
+
+cp -f "$APP_NAME.app/embedded.mobileprovision" profile.mobileprovision
+
+section_print "Get the profile name"
+
+PROFILE_NAME=`strings ./profile.mobileprovision | grep -A1 '<key>Name</key>' | tail -n1 | awk -F'<string>' '{print $2}' | awk -F'</string>' '{print $1}'`
+PROFILE_NAME=${PROFILE_NAME//'*'/}
+PROFILE_NAME=${PROFILE_NAME//'?'/}
+PROFILE_NAME="$PROFILE_NAME.mobileprovision"
+
+section_print "Profile name is $PROFILE_NAME"
+
+mv -f "profile.mobileprovision" "$PROFILE_NAME"
+rm -f "$WORKSPACE/*.mobileprobision" || fail "Failed to remove $WORKSPACE/*.mobileprovision"
+rm -f "$WORKSPACE/$IPA_FILE" || fail "Failed to remove $WORKSPACE/$IPA_FILE"
+
+section_print "Copying $IPA_FILE to artifacts"
+cp -v "$IPA_FILE" "$WORKSPACE/." || fail "Failed to copy ipa"
+cp -v "$PROFILE_NAME" "$WORKSPACE/." || fail "Failed to copy profile"
+cp -v "$DSYM_FILE" "$WORKSPACE/." || fail "Failed to copy dSYM"
+section_print "Build succeeded"
+
+#creating manifest.plist file to download ipa file
+
+if [ -d "${WORKSPACE}/$JOB_NAME" ]; then
+
+  rm -r ${WORKSPACE}/$JOB_NAME
+
+fi
+
+mkdir ${WORKSPACE}/$JOB_NAME
+
+cp $WORKSPACE/icon.png ${WORKSPACE}/$JOB_NAME/Icon-57.png
+cp $WORKSPACE/icon@2x.png ${WORKSPACE}/$JOB_NAME/Icon-512.png
+
+TARGET_NAME=$APP_NAME
+
+info_plist=$(ls ${WORKSPACE}/*/*-Info.plist)
+
+bundle_version=$(defaults read $info_plist CFBundleShortVersionString)
+bundle_id=$(defaults read $info_plist CFBundleIdentifier)
+
+cat << EOF > ${WORKSPACE}/manifest2.plist
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0" mimeType="application/xml">
+
+<dict>
+   <key>items</key>
+   <array>
+       <dict>
+           <key>assets</key>
+           <array>
+               <dict>
+                   <key>kind</key>
+                   <string>software-package</string>
+                   <key>url</key>
+                   <string>http://192.168.0.237:8080/job/$JOB_NAME/ws/$IPA_FILE</string>
+               </dict>
+               <dict>
+                   <key>kind</key>
+                   <string>display-image</string>
+                   <key>needs-shine</key>
+                   <true/>
+                   <key>url</key>
+                   <string>${WORKSPACE}/$JOB_NAME/Icon-57.png</string>
+               </dict>
+               <dict>
+                   <key>kind</key>
+                   <string>full-size-image</string>
+                   <key>needs-shine</key>
+                   <true/>
+                   <key>url</key>
+                   <string>${WORKSPACE}/$JOB_NAME/Icon-512.png</string>
+               </dict>
+           </array>
+           <key>metadata</key>
+           <dict>
+               <key>bundle-identifier</key>
+               <string>$bundle_id</string>
+               <key>bundle-version</key>
+               <string>$bundle_version #$BUILD_NUMBER</string>
+               <key>kind</key>
+               <string>software</string>
+               <key>title</key>
+               <string>$APP_NAME</string>
+           </dict>
+       </dict>
+   </array>
+</dict>
+</plist>
+
+EOF
+
+cat << EOF > ${WORKSPACE}/download.html
+<html>
+<body>
+<h1>Download IPA Here</h1>
+<a href="itms-services://?action=download-manifest&url=http://192.168.0.237:8080/job/$JOB_NAME/ws/manifest2.plist" mimeType="application/octet-stream">
+    <b>Install App</b>
+</a>
+</body>
+</html>
+EOF
