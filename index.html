@@ -124,10 +124,7 @@
                         <div class="card-body" v-show="showStep4">
                             <h4 class="card-title">Шаг 4: установите приложение</h4>
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <h6>Отсканируйте qr код на камеру:</h6>
-                                    <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
-                                </div> 
+                                
                                 <div class="col-sm-8">
                                     <h6>Нажмите установить или скачать файлом ваше приложение</h6>
                                     <button type="button" class="login-button" @click="download"><a :href="download">Установить 📲</a></button> </br> </br> 
@@ -283,11 +280,7 @@
                             
                             that.download = 'itms-services://?action=download-manifest&amp;amp;url=https://ipasigns.cc/upload/' + params.uuid + '/' + params.time + '/app.plist';
                             that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'resign_' + params.time + '.ipa'
-                            var qrcode = new QRCode(document.getElementById("qrcode"), {
-                                width: 100,
-                                height: 100
-                            });
-                            qrcode.makeCode(that.download);
+                           
                             
                         } else if (response.data.code == 1) {
                             console.info("В подписи");
