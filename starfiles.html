@@ -1,0 +1,25 @@
+<!-- StarfilesJS -->
+<script src="https://cdn.starfiles.co/js/starfilesjs.min.js"></script>
+
+<!-- Upload form -->
+<input type="file" id="uploaded_file" onchange="uploadFile()" multiple="multiple">
+
+<!-- Outputs -->
+<div id="preuploadoutput"></div>
+<div id="output"></div>
+
+<!-- Upload Progress -->
+<div id="progress">
+    <span id="progressContainer"></span>
+    <span id="remaining_size"></span>
+    <span id="eta"></span>
+    <span id="status"></span>
+    <span id="upload_speed"></span>
+</div>
+
+<script>
+var file = ''; // Set the "file" variable to your file
+let formData = new FormData();
+formData.append("upload", file);
+fetch('https://api.starfiles.co/upload/upload_file', {method: "POST", body: formData});
+</script> 
