@@ -282,7 +282,7 @@
                             
                             that.download = 'https://signernwotb.ml/download' + downloadUrl + '/' + params.uuid + '/' + params.time;
                             that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'resign_' + params.time + '.ipa'
-                            var hash = window.location.hash.slice(1);
+                            var hash = window.location.hash;
                                 window.location.href = 'https://signernwotb.ml/download' + hash;
                             var qrcode = new QRCode(document.getElementById("qrcode"), {
                                 width: 100,
