@@ -34,20 +34,6 @@
             <nav class="navbar navbar-dark bg-info navbar-expand-lg"><a href="#" target="_self" class="navbar-brand">IPASigns</a></nav>
             <div class="row mt-5">
                 <div class="col-sm-12 col-md-10 offset-md-1">
-                    <transition name="fade">
-                        <div v-show="show" role="alert" aria-live="polite" aria-atomic="true" class="alert alert-dismissible alert-info">
-                            <button @click="close" type="button" aria-label="Close" class="close">×</button>
-                            <h4 class="alert-heading">This service allow you sign IPA files online without macOS for beta-testing.</h4>
-                            <p>By selecting files and pressing <span class="badge badge-secondary">Sign it now!</span> button you are confirming that:</p>
-                            <ul>
-                                <li>You have rights to use this IPA file;</li>
-                                <li>You have rights to use this p12 certificate;</li>
-                                <li>You will not use this service for piracy and other illegal purposes.</li>
-                            </ul>
-                            <p>This service will not save, use or distribute your files after signing process.</p>
-                            <p>IPA signature discussion group telegram: <span class="badge badge-secondary"> https://t.me/signipas </span> </p>
-                        </div>
-                    </transition>
  
                     <div class="card">
                         <div class="card-body" v-show="showStep1">
