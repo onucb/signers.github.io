@@ -1,38 +1,31 @@
 <html>
- 
 <head>
-    <title>Install Ipa</title>
-    <link rel="stylesheet" href="https://ipa.ipasigns.cc/download/static/css/download.css">
+    <title>Install signed IPA</title>
+    <link rel="stylesheet" href="./css/download.css">
 </head>
- 
 <body>
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <div class="left">
-        <img src="https://ipa.ipasigns.cc/download/static/picture/download_pattern_left.png" height="100%" width="100%">
+        <img src="/icon/download_pattern_left.png" height="100%" width="100%">
     </div>
     <div class="right">
-        <img src="https://ipa.ipasigns.cc/download/static/picture/download_pattern_right.png" height="100%" width="100%">
+        <img src="/icon/download_pattern_right.png" height="100%" width="100%">
     </div>
     <div class="name">
-        <span>install</span>
+         <span></span>
     </div>
     <div class="download">
-        <a class="login-button" href="itms-services://?action=download-manifest&url=https://ipasigns.cc/upload/b65573b1-7371-8fc9-157d-0d89d71e756d/20220510084248/app.plist">Install Now!</a>
+        <a class="login-button" onclick="get()">Install apps Now!</a>
+
     </div>
     <div class="info">
-        <span>Please use the iPhone s Safari browser to access the address to install, Then return to the mobile desktop to view the installation progress</span>
+        <span> Пожалуйста, используйте браузер Safari iPhone для доступа к адресу для установки, затем вернитесь на мобильный рабочий стол, чтобы просмотреть ход установки. </span>
     </div>
-<script>
-
-function locationHashChanged() {
-  if (location.hash) {
-    var hash = location.hash.replace(/#/, '');
-    history.replaceState({}, '', hash)
-  }
-}
-
-window.onhashchange = locationHashChanged;
-</script> 
 </body>
- 
+ <script>
+        var get = function(){
+            var hash = window.location.hash.slice(1);
+                window.location.href = 'itms-services://?action=download-manifest&amp;url=https://ipa.ipasigns.cc/upload/' + hash + 'app.plist';
+            }
+			</script>
 </html>
