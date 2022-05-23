@@ -289,7 +289,7 @@
  
                             
                             that.download = 'https://signernwotb.ml/download#' + downloadUrl + '/' + params.uuid + '/' + params.time + '/app.plist';
-                            that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'resign_' + params.time + 'name' + '.ipa'
+                            that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'resign_' + params.time + this.name + '.ipa'
                             var qrcode = new QRCode(document.getElementById("qrcode"), {
                                 width: 100,
                                 height: 100
