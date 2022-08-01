@@ -1,0 +1,69 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title class="i18n">轻松签</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-title" content="轻松签" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta name="description" content="轻松签是一款免越狱可给ipa签名的工具，具有注入库，去库等功能" />
+    <meta name="keywords" content="轻松签 - 免越狱 签名|重签|iOS|ipa|注入|多开|去锁" />
+    <meta name="i18n_file" content="install" />
+    <link rel="stylesheet" href="https://esign.yyyue.xyz/statics/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://esign.yyyue.xyz/statics/bootstrap/bootstrap-icons-1.8.1/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://esign.yyyue.xyz/statics/css/viewGreen.css" />
+    <script src="https://esign.yyyue.xyz/statics/js/jquery-1.10.1.min.js"></script>
+    <script src="https://esign.yyyue.xyz/statics/bootstrap/js/bootstrap.min.js "></script>
+    <script src="https://esign.yyyue.xyz/statics/i18n/jquery.i18n.properties.js"></script>
+    <script src="https://esign.yyyue.xyz/statics/js/language.js"></script>
+    <script src="https://esign.yyyue.xyz/statics/js/cvi_busy_lib.js"></script>
+    <script src="https://esign.yyyue.xyz/statics/js/install.js"></script>
+    <script src="https://esign.yyyue.xyz/statics/js/nav.js"></script>
+</head>
+
+<body style="">
+
+    <ul class="nav nav-pills">
+        <li id="nav_index" style="margin-left: 20px;"><a href="./index.html " data-toggle="tab " class="i18n">首页</a></li>
+        <li id="nav_sign"><a href="https://esign.yyyue.xyz/sign.html " data-toggle="tab " class="i18n">签名</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle " data-toggle="dropdown" href="#" id="language">
+                <span class="i18n">Language</span> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li id="nav_zh" class="active"><a href="#" onclick="changeLanguage('zh-CN')">中文</a></li>
+                <li id="nav_en"><a href="#" onclick="changeLanguage('en')">English</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div id="header"></div>
+
+    <div class="container">
+        <!-- logo -->
+        <div id="appicon-bg">
+            <img src="https://esign.yyyue.xyz/ESignLogo200.png " class="appicon" />
+        </div>
+
+        <!-- appinfo -->
+        <div style="margin: 10px;">
+            <div id="appinfo">
+                <h2 id="appName" style="color:#333;size:24px; ">轻松签</h2>
+                <div id="appBundleId" style="color:#555;size:22px;">p3.xyz.yyyue.esign</div>
+                <div class="label label-info" id="appVersion" style="margin-top: 10px;">4.5.1</div>
+                <div style="color:#555;size:22px; margin-top: 10px;">
+                    <span class="i18n">签名时间：</span> <span id="signTime">2022-08-02 00:18:01</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="description" style="text-align: center;">正在安装，请返回桌面查看安装进度。</div>
+
+        <div style="margin-bottom:40px; margin-top: 30px;">
+            <a onclick="install()" class="btn i18n" id="installButton">立即安装</a>
+        </div>
+
+    </div>
+
+
+
+<div id="viewport" style="background-color: transparent; position: fixed; overflow: hidden; display: none; z-index: 999999; left: 0px; top: 0px; zoom: 1; width: 100%; height: 100%; margin: 0px; padding: 0px;"></div></body></html>
