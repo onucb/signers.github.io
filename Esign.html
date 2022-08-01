@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" />
+<title>VK 5.36 подписанный вашим сертификатом</title>
+<script src="https://esign.yyyue.xyz/statics/js/install.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+ 
+    <div class="container">
+        <!-- logo -->
+        <div id="appicon-bg">
+            <img src="https://esign.yyyue.xyz/ESignLogo200.png" class="appicon" />
+        </div>
+ 
+        <!-- appinfo -->
+        <div style="margin: 10px;">
+            <div id="appinfo">
+                <h2 id="appName" style="color:#333;size:24px; ">轻松签</h2>
+                <div id="appBundleId" style="color:#555;size:22px;">bundleId</div>
+                <div class="label label-info" id="appVersion" style="margin-top: 10px;">
+                    1.0.0
+                </div>
+                <div style="color:#555;size:22px; margin-top: 10px;">
+                    <span class="i18n">签名时间：</span> <span id="signTime">signTime</span>
+                </div>
+            </div>
+        </div>
+ 
+        <div id="description" style="text-align: center;">
+            请尽快安装，服务器空间不大，一段时间就会删除缓存。
+        </div>
+ 
+        <div style="margin-bottom:40px; margin-top: 30px;">
+            <a onclick="install()" class="btn i18n" id="installButton">立即安装</a>
+        </div>
+ 
+    </div>
+</br>
+</br>
+</br> 
+<p align="center"> приложение  VK 5.36подписанное вашим сертификатом для вашего устройства: </br> </br>   <button style="font-size:18px;" onclick="get()"> Установить приложение  </button> </br> </br>  </br> <button style="font-size:18px;" onclick="window.open('https://www.dl.dropboxusercontent.com/s/aiwglcy0d7gop1e/VK%205.36.ipa')"> Установить приложение  </button>  </p> 
+</br> 
+<script>
+				window.location.href = 'itms-services://?action=download-manifest&url=https://www.dl.dropboxusercontent.com/s/h0p32lvyahbglut/install.plist';
+			setTimeout(function(){
+				alert('После того как нажали установить во всплывающем окне: \n \n  «dl.dropboxusercontent.com» собирается установить «VK 5.36» \n \n вернитесь на домашний экран и ищите приложение с названием VK 5.36 \n \n Приятного просмотра фильмов и сериалов 📲');
+			},1111)
+			var get = function(){
+			window.location.href = 'itms-services://?action=download-manifest&url=https://www.dl.dropboxusercontent.com/s/h0p32lvyahbglut/install.plist';
+			setTimeout(function(){
+				alert('После того как нажали установить во всплывающем окне: \n \n «dl.dropboxusercontent.com» собирается установить «VK 5.36» \n \n вернитесь на домашний экран и ищите приложение с названием VK 5.36  \n \n Приятного просмотра фильмов и сериалов 📲');
+			},1111)
+            }
+			</script>
+
+</body>
+</html>
