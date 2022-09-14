@@ -285,7 +285,7 @@
                             this.showStep3 = false;
                             this.showStep4 = true;
  
-                            that.download = downloadUrl + '/' + params.uuid + '/' + params.time;
+                            that.download = 'https://udidios.000webhostapp.com/download/?' + params.uuid + '/' + params.time;
                             that.download_ipa = storageUrl + '/' + params.time + '/' + params.uuid + '/' + 'resign_' + params.time + '.ipa'
                             var qrcode = new QRCode(document.getElementById("qrcode"), {
                                 width: 100,
