@@ -1,7 +1,7 @@
 const shareData = {
-    title: 'TrollStore Guide',
-    text: '!Веб-сайт, который упрощает установку TrollStore!',
-    url: 'https://signernwotb.ml/TrollGuide'
+    title: 'TrollStore',
+    text: 'Веб-сайт, который упрощает установку TrollStore!',
+    url: 'https://signernwotb.ml/TrollGuide/'
 }
 
 function isiOS() {
