@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="TrollGuide">
+    <meta property="og:image" content="https://bomberfish.ca/TrollGuide/trollstore.png">
+    <meta property="og:url" content="http://bomberfish.ca/TrollGuide">
+    <meta property="og:description" content="Веб-сайт, который упрощает установку TrollStore.">
+    <meta property="og:site_name" content="BomberFish">
+    <link rel="stylesheet" href="styles.css">
+    <title>TrollStore Check install</title>
+    <meta name="theme-color" content="var(--gray6)">
+</head>
+
+<body>
+    <div id="container" style="height: 75%; width: 100%; padding-bottom: 0vw;">
+        <img src="trollstore.png" width="25%" height="100%" style="display: inline-flex; ">
+        <div style="margin-left: 1%; margin-top: 1%; display: inline-block; position:absolute">
+            <h1 class="title" style="display: inline;">TrollStore</h1><br>
+            <h5 class="subtitle">Установите IPA без отзыва</h5>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            <button id="get" style="margin-top: 5%" onclick='buttonClick(document.getElementById("get"))'>Get</button><br>
+        </div><button id="share"></button><br></div></button>
+        <div style="margin-left: 2%;">
+            <p id="notidevice" class="error">Посетите эту страницу на вашем iPhone, iPad или iPod touch для установки.</p>
+            <p id="155" class="warning">Предупреждение: Release Candidate/Final build (19F77) не поддерживаются!</p>
+            <p id="156" class="warning">Предупреждение: Release Candidate 1 (19G69) и Release Candidate 2/Final build (19G71) не поддерживаются!</p>
+            <p id="m1" class="warning">Предупреждение: Поддержка Apple Silicon Mac является экспериментальной. Попробуйте на свой страх и риск!</p>
+            <p id="checkra1n" class="warning">Предупреждение: для iPhone до iPhone XS и iPod Touch 2018 года (arm64, A8-A11) потребуется <a href="https://github.com/opa334/TrollStore/blob/main/install_trollhelper.md">разорванная установка через checkra1n</a>!</p>
+            <p id="ramdisk" class="warning">Предупреждение: для iPhone до iPhone XS и iPod Touch 2018 года (arm64, A8-A11) потребуется <a href="https://github.com/opa334/TrollStore/blob/main/install_sshrd.md">установка через SSH ramdisk</a>!</p>
+            <h2>О магазине троллей</h2>
+            <p>TrollStore - это постоянное тюремное приложение, которое может постоянно устанавливать любой IPA, который вы открываете в нем.</p>
+            <p>Это работает из-за ошибки AMFI/CoreTrust, когда iOS не проверяет, является ли корневой сертификат, используемый для подписи двоичного файла, законным.</p>
+            <h2>Обновление TrollStore</h2>
+            <p>Когда будет доступно новое обновление TrollStore, кнопка для его установки появится в верхней части настроек TrollStore. После нажатия кнопки TrollStore автоматически загрузит обновление, установит его и перезагрузит.</p>
+            <p>Кроме того (если что-то пойдет не так), вы можете скачать файл TrollStore.tar в разделе "Релизы" и открыть его в TrollStore, TrollStore установит обновление и перезагрузит.</p>
+            <h2>Удаление приложения для удаления</h2>
+            <p>Приложения, установленные из TrollStore, могут быть удалены только из самого TrollStore, коснитесь приложения или смахните его вправо на вкладке "Приложения", чтобы удалить его.</p>
+            <h2>Схема URL</h2>
+            <p>Начиная с версии 1.3 TrollStore заменяет схему системных URL-адресов "apple-magnifier" (это делается таким образом, чтобы обнаружения "jailbreak" не могли обнаружить TrollStore, как если бы у TrollStore была уникальная схема URL). Эту схему URL можно использовать для установки приложений
+
+Прямо из браузера формат выглядит следующим образом:</p>
+            <code>apple-magnifier://install?url=&lt;URL_to_IPA&gt;</code>
+            <p>На устройствах, на которых не установлен TrollStore (1.3+), это просто откроет приложение лупы.</p>
+        </div>
+</body>
+<script src="script.js"></script>
+
+</html>
