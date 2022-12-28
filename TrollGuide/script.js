@@ -1,6 +1,6 @@
 const shareData = {
     title: 'TrollGuide',
-    text: '!Website that makes it easier to install TrollStore.',
+    text: '!Веб-сайт, который упрощает установку TrollStore!',
     url: 'https://bomberfish.ca/TrollGuide'
 }
 
