@@ -20,16 +20,16 @@
         <img src="trollstore.png" width="25%" height="100%" style="display: inline-flex; ">
         <div style="margin-left: 1%; margin-top: 1%; display: inline-block; position:absolute">
             <h1 class="title" style="display: inline;">TrollStore</h1><br>
-            <h5 class="subtitle">Install IPAs without revokes</h5>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            <h5 class="subtitle">Установите IPA без отзыва</h5>&nbsp;&nbsp;&nbsp;&nbsp;<br>
             <button id="get" style="margin-top: 5%" onclick='buttonClick(document.getElementById("get"))'>Get</button><br>
         </div><button id="share"></button><br></div></button>
         <div style="margin-left: 2%;">
-            <p id="notidevice" class="error">Visit this page on your iPhone, iPad, or iPod touch to install.</p>
-            <p id="155" class="warning">Warning: Release Candidate/Final build (19F77) are not supported!</p>
-            <p id="156" class="warning">Warning: Release Candidate 1 (19G69) and Release Candidate 2/Final build (19G71) are not supported!</p>
-            <p id="m1" class="warning">Warning: Apple Silicon Mac support is experimental. Try at your own risk!</p>
-            <p id="checkra1n" class="warning">Warning: iPhones before 2018's iPhone XS and iPod Touches (arm64, A8-A11) will require a <a href="https://github.com/opa334/TrollStore/blob/main/install_trollhelper.md">jailbroken install via checkra1n</a>!</p>
-            <p id="ramdisk" class="warning">Warning: iPhones before 2018's iPhone XS and iPod Touches (arm64, A8-A11) will require <a href="https://github.com/opa334/TrollStore/blob/main/install_sshrd.md">installation via SSH ramdisk</a>!</p>
+            <p id="notidevice" class="error">Посетите эту страницу на вашем iPhone, iPad или iPod touch для установки.</p>
+            <p id="155" class="warning">Предупреждение: Release Candidate/Final build (19F77) не поддерживаются!</p>
+            <p id="156" class="warning">Предупреждение: Release Candidate 1 (19G69) и Release Candidate 2/Final build (19G71) не поддерживаются!</p>
+            <p id="m1" class="warning">Предупреждение: Поддержка Apple Silicon Mac является экспериментальной. Попробуйте на свой страх и риск!</p>
+            <p id="checkra1n" class="warning">Предупреждение: для iPhone до iPhone XS и iPod Touch 2018 года (arm64, A8-A11) потребуется <a href="https://github.com/opa334/TrollStore/blob/main/install_trollhelper.md">разорванная установка через checkra1n</a>!</p>
+            <p id="ramdisk" class="warning">Предупреждение: для iPhone до iPhone XS и iPod Touch 2018 года (arm64, A8-A11) потребуется <a href="https://github.com/opa334/TrollStore/blob/main/install_sshrd.md">установка через SSH ramdisk</a>!</p>
             <h2>О магазине троллей</h2>
             <p>TrollStore - это постоянное тюремное приложение, которое может постоянно устанавливать любой IPA, который вы открываете в нем.</p>
             <p>Это работает из-за ошибки AMFI/CoreTrust, когда iOS не проверяет, является ли корневой сертификат, используемый для подписи двоичного файла, законным.</p>
@@ -60,7 +60,7 @@
             <p>iOS 15 на A12+ запретила следующие три права, связанные с запуском неподписанного кода, их невозможно получить без обхода PPL, приложения, подписанные ими, завершат работу при запуске.</p>
             <code>com.apple.private.cs.debugger</code>
             <p>Динамический кодизайн</p>
-            <p>com.apple.private.skip-library-validation</p>
+            <p><code>com.apple.private.skip-library-validation</code></p>
             <h4>Распаковка пескобоксов</h4>
             <p>Ваше приложение может работать без песочницы, используя одно из следующих прав:</p>
             <code>&lt;key&gt;com.apple.private.security.container-required&lt;/key&gt;
@@ -84,15 +84,15 @@
             <p>После этого вы можете использовать функцию <a href="https://github.com/opa334/TrollStore/blob/main/Shared/TSUtil.m#L74">spawnRoot в TSUtil.m</a>, чтобы породить двоичный файл как root.</p>
             <h4>Вещи, которые невозможно использовать TrollStore:</h4>
             <ul type="circle">
-                <li>Getting proper platformization / <code>CS_PLATFORMIZED</code></li>
-                <li>Spawning a launch daemon (Would need <code>CS_PLATFORMIZED</code>)</li>
-                <li>Injecting a tweak into a system process (Would need <code>CS_PLATFORMIZED</code>, a userland PAC bypass and a PMAP trust level bypass)</li>
+                <li>Получение правильной платформеризации / <code>CS_PLATFORMIZED</code></li>
+                <li>Порождение демона запуска (потребуется <code>CS_PLATFORMIZED</code>)</li>
+                <li>Внедрение настройки в системный процесс (требуется <code>CS_PLATFORMIZED</code>, a userland PAC bypass and a PMAP trust level bypass)</li>
             </ul>
-            <h2>Credits and Further Reading</h2>
-            <p><a href="https://github.com/opa334/TrollStore">TrollStore repo</a> for the README</p>
-            <p><a href="https://twitter.com/LinusHenze">@LinusHenze</a> - Found the CoreTrust bug that allows TrollStore to work.</p>
-            <p><a href="https://youtu.be/NIyKNjNNB5Q?t=3046">Fugu15 Presentation</a></p>
-            <p><a href="https://worthdoingbadly.com/coretrust/">Write-Up on the CoreTrust bug with more information.</a></p>
+            <h2>Кредиты и дальнейшее чтение</h2>
+            <p><a href="https://github.com/opa334/TrollStore">Репозиторий TrollStore</a> для README</p>
+            <p><a href="https://twitter.com/LinusHenze">@LinusHenze</a> - Обнаружена ошибка CoreTrust, которая позволяет TrollStore работать.</p>
+            <p><a href="https://youtu.be/NIyKNjNNB5Q?t=3046">Презентация Fugu15</a></p>
+            <p><a href="https://worthdoingbadly.com/coretrust/">Напишите об ошибке CoreTrust с дополнительной информацией.</a></p>
         </div>
 </body>
 <script src="script.js"></script>
