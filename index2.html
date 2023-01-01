@@ -127,7 +127,7 @@
                                 
                                 <div class="col-sm-8">
                                     <h6>Установить подписанное приложение на устройство:</h6>
-                                    <button type="button" class="btn mt-3 btn-primary btn-block" @click="download"> <a :href="download">Установить 📲</a> </button> </br> </br> 
+                                    <button type="button" class="btn mt-3 btn-primary btn-block" @click="download"> <a :href="/ipa?download">Установить 📲</a> </button> </br> </br> 
                                     <h6> Скачать файлом в загрузки подписанное приложение: </h6> 
                                     <button type="button" class="btn mt-3 btn-primary btn-block" @click="download"> <a :href="download_ipa">Скачать 📥</a> </button>
                                 </div>
@@ -277,8 +277,8 @@
                             this.showStep3 = false;
                             this.showStep4 = true;
  
-                            
-                            that.download = 'itms-services://?action=download-manifest&amp;amp;url=https://ipasigns.cc/upload/' + params.uuid + '/' + params.time + '/app.plist';
+                            that.download = downloadUrl + '/' + params.uuid + '/' + params.time;
+                            //that.download = 'itms-services://?action=download-manifest&amp;amp;url=https://ipasigns.cc/upload/' + params.uuid + '/' + params.time + '/app.plist';
                             that.download_ipa = storageUrl + '/' + params.uuid + '/' + params.time + '/' + 'signernwotb.ml_' + params.time + '.ipa'
                            
                             
