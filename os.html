@@ -1,6 +1,40 @@
 <html>
 <head>
-<script> 
+<script>
+
+if(navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.match(/iPhone/i) || (navigator.userAgent.match(/iPod/i))) 
+
+    {
+
+        //alert("Ваше устройство:  iPhone или  iPod");
+        window.location.href = "https://t.me/+NnEUon9KVJs1Yzdi";
+
+    }
+
+else if (navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.match(/iPad/i))  
+
+    {
+
+        //alert("Ваше устройство:  iPad");
+        window.location.href = "https://t.me/+NnEUon9KVJs1Yzdi";
+
+    }
+
+else if (navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.indexOf('Safari') != -1)
+
+    {
+
+        //alert("Ваше устройство:  Mac OS");
+        window.location.href = "https://t.me/piper_pied";
+
+    }
+
+else if (navigator.vendor == null || navigator.vendor != null)
+
+    {
+
+        //alert("Ваше устройство не от компании Apple");
+
         function detect() {
           var isMobile = window.orientation > -1;
 	  var gettext = isMobile ? 'Mobile' : 'PC';
